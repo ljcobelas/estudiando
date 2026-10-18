@@ -1,0 +1,237 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Contratos de transferencia - Electro Alem",
+  "description": "Esquemas documentales del flujo Make/Airtable/Groq/Gmail; no reemplazan las estructuras internas de Make.",
+  "$defs": {
+    "Lead": {
+      "type": "object",
+      "required": [
+        "Lead ID",
+        "Consulta",
+        "Email",
+        "Estado",
+        "Aprobado"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^rec"
+        },
+        "Lead ID": {
+          "type": "string"
+        },
+        "Consulta": {
+          "type": "string"
+        },
+        "Nombre": {
+          "type": "string"
+        },
+        "Email": {
+          "type": "string",
+          "format": "email"
+        },
+        "Email aprobador": {
+          "type": "string",
+          "format": "email"
+        },
+        "Estado": {
+          "type": "string",
+          "enum": [
+            "Pendiente",
+            "Procesado por IA",
+            "Pendiente de aprobación",
+            "Aprobado por humano",
+            "Rechazado",
+            "Enviado",
+            "Error"
+          ]
+        },
+        "Aprobado": {
+          "type": "boolean"
+        },
+        "Borrador respuesta": {
+          "type": "string"
+        },
+        "Mensaje ID": {
+          "type": "string"
+        },
+        "Thread ID": {
+          "type": "string"
+        }
+      }
+    },
+    "GroqRequest": {
+      "type": "object",
+      "required": [
+        "model",
+        "messages",
+        "response_format",
+        "max_completion_tokens"
+      ],
+      "properties": {
+        "model": {
+          "const": "openai/gpt-oss-20b"
+        },
+        "messages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "role",
+              "content"
+            ],
+            "properties": {
+              "role": {
+                "type": "string",
+                "enum": [
+                  "system",
+                  "user"
+                ]
+              },
+              "content": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "response_format": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "json_object"
+            }
+          }
+        },
+        "reasoning_effort": {
+          "const": "low"
+        },
+        "max_completion_tokens": {
+          "type": "integer",
+          "maximum": 700
+        }
+      }
+    },
+    "IAContenido": {
+      "type": "object",
+      "required": [
+        "prioridad",
+        "resumen",
+        "borrador_respuesta"
+      ],
+      "properties": {
+        "prioridad": {
+          "type": "string",
+          "enum": [
+            "ALTA",
+            "MEDIA",
+            "BAJA"
+          ]
+        },
+        "resumen": {
+          "type": "string"
+        },
+        "borrador_respuesta": {
+          "type": "string"
+        }
+      }
+    },
+    "GmailResult": {
+      "type": "object",
+      "required": [
+        "id",
+        "threadId"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "threadId": {
+          "type": "string"
+        }
+      }
+    },
+    "Ejecucion": {
+      "type": "object",
+      "required": [
+        "Ejecución ID",
+        "Resultado",
+        "Etapa",
+        "Leads"
+      ],
+      "properties": {
+        "Ejecución ID": {
+          "type": "string"
+        },
+        "Resultado": {
+          "type": "string",
+          "enum": [
+            "Éxito",
+            "Pendiente HITL",
+            "Dato inválido",
+            "Error API",
+            "Envío fallido"
+          ]
+        },
+        "Etapa": {
+          "type": "string"
+        },
+        "Tokens": {
+          "type": "number",
+          "minimum": 0
+        },
+        "Error porcentual": {
+          "type": "number",
+          "enum": [
+            0,
+            100
+          ]
+        },
+        "Leads": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^rec"
+          }
+        }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "required": [
+        "Error ID",
+        "Módulo",
+        "Código",
+        "Estado",
+        "Leads"
+      ],
+      "properties": {
+        "Error ID": {
+          "type": "string"
+        },
+        "Módulo": {
+          "type": "string"
+        },
+        "Código": {
+          "type": "string"
+        },
+        "Mensaje resumido": {
+          "type": "string"
+        },
+        "Estado": {
+          "type": "string",
+          "enum": [
+            "Abierto",
+            "Resuelto"
+          ]
+        },
+        "Leads": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^rec"
+          }
+        }
+      }
+    }
+  }
+}

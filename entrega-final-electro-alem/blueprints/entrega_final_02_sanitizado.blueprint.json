@@ -1,0 +1,2076 @@
+{
+  "name": "02 - Envío aprobado - Electro Alem",
+  "flow": [
+    {
+      "id": 1,
+      "module": "airtable:ActionSearchRecords",
+      "version": 3,
+      "parameters": {
+        "__IMTCONN__": 14621498
+      },
+      "mapper": {
+        "base": "app44u2el71v1uwh6",
+        "table": "tblmDmD1LmYRGUGt2",
+        "formula": "AND({Estado}=\"Aprobado por humano\",{Aprobado}=1,{Email}!=\"\",{Borrador respuesta}!=\"\",{Mensaje ID}=\"\")",
+        "maxRecords": "10",
+        "useColumnId": false,
+        "formulaField": "formula"
+      },
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0
+        },
+        "setupValidation": {
+          "result": {
+            "valid": true,
+            "fields": []
+          },
+          "version": 1,
+          "configuration": "9ad797ad607d531d"
+        },
+        "restore": {
+          "expect": {
+            "base": {
+              "mode": "chose",
+              "label": "Entrega Final IA - Leads Electro Alem (pruebas)"
+            },
+            "sort": {
+              "mode": "chose"
+            },
+            "view": {
+              "mode": "chose",
+              "label": "Empty"
+            },
+            "table": {
+              "mode": "chose",
+              "label": "Leads"
+            },
+            "fields": {
+              "mode": "chose"
+            },
+            "useColumnId": {
+              "mode": "chose"
+            },
+            "formulaField": {
+              "mode": "chose",
+              "label": "Airtable formula"
+            }
+          },
+          "parameters": {
+            "__IMTCONN__": {
+              "data": {
+                "scoped": "true",
+                "connection": "airtable3"
+              },
+              "label": "Leonardo's Airtable OAuth connection (User ID: usrWBdUBnpxSth4Mj)"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "__IMTCONN__",
+            "type": "account:airtable3,airtable2",
+            "label": "Connection",
+            "required": true
+          }
+        ],
+        "expect": [
+          {
+            "name": "base",
+            "type": "select",
+            "label": "Base",
+            "required": true
+          },
+          {
+            "name": "useColumnId",
+            "type": "boolean",
+            "label": "Use column ID",
+            "required": true
+          },
+          {
+            "name": "table",
+            "type": "select",
+            "label": "Table",
+            "required": true
+          },
+          {
+            "name": "maxRecords",
+            "type": "integer",
+            "label": "Limit"
+          },
+          {
+            "name": "sort",
+            "spec": [
+              {
+                "name": "field",
+                "type": "select",
+                "label": "Field",
+                "dynamic": true,
+                "options": []
+              },
+              {
+                "name": "direction",
+                "type": "select",
+                "label": "Direction",
+                "options": [
+                  {
+                    "label": "Descending",
+                    "value": "desc"
+                  },
+                  {
+                    "label": "Ascending",
+                    "value": "asc"
+                  }
+                ]
+              }
+            ],
+            "type": "array",
+            "label": "Sort"
+          },
+          {
+            "name": "view",
+            "type": "select",
+            "label": "View"
+          },
+          {
+            "name": "fields",
+            "type": "select",
+            "label": "Output fields",
+            "multiple": true
+          },
+          {
+            "name": "formulaField",
+            "type": "select",
+            "label": "Filter type",
+            "validate": {
+              "enum": [
+                "formula",
+                "simpleFilter"
+              ]
+            }
+          },
+          {
+            "name": "formula",
+            "type": "text",
+            "label": "Formula"
+          }
+        ],
+        "interface": [
+          {
+            "name": "__IMTLENGTH__",
+            "type": "uinteger",
+            "label": "Total number of bundles"
+          },
+          {
+            "name": "__IMTINDEX__",
+            "type": "uinteger",
+            "label": "Bundle order position"
+          },
+          {
+            "name": "id",
+            "type": "text",
+            "label": "ID"
+          },
+          {
+            "name": "createdTime",
+            "type": "date",
+            "label": "Created time"
+          },
+          {
+            "name": "Lead ID",
+            "type": "text",
+            "label": "Lead ID"
+          },
+          {
+            "name": "Consulta",
+            "type": "text",
+            "label": "Consulta",
+            "multiline": true
+          },
+          {
+            "name": "Nombre",
+            "type": "text",
+            "label": "Nombre"
+          },
+          {
+            "name": "Email",
+            "type": "text",
+            "label": "Email"
+          },
+          {
+            "name": "Estado",
+            "type": "text",
+            "label": "Estado"
+          },
+          {
+            "name": "Prioridad",
+            "type": "text",
+            "label": "Prioridad"
+          },
+          {
+            "name": "Resumen IA",
+            "type": "text",
+            "label": "Resumen IA",
+            "multiline": true
+          },
+          {
+            "name": "Borrador respuesta",
+            "type": "text",
+            "label": "Borrador respuesta",
+            "multiline": true
+          },
+          {
+            "name": "Aprobado",
+            "type": "boolean",
+            "label": "Aprobado"
+          },
+          {
+            "name": "Thread ID",
+            "type": "text",
+            "label": "Thread ID"
+          },
+          {
+            "name": "Mensaje ID",
+            "type": "text",
+            "label": "Mensaje ID"
+          },
+          {
+            "name": "Origen",
+            "type": "text",
+            "label": "Origen"
+          },
+          {
+            "name": "Conocimientos utilizados",
+            "spec": {
+              "type": "text",
+              "label": "Record ID"
+            },
+            "type": "array",
+            "label": "Conocimientos utilizados"
+          },
+          {
+            "name": "Ejecuciones registradas",
+            "spec": {
+              "type": "text",
+              "label": "Record ID"
+            },
+            "type": "array",
+            "label": "Ejecuciones registradas"
+          },
+          {
+            "name": "Errores registrados",
+            "spec": {
+              "type": "text",
+              "label": "Record ID"
+            },
+            "type": "array",
+            "label": "Errores registrados"
+          },
+          {
+            "name": "Creado el",
+            "type": "date",
+            "label": "Creado el"
+          },
+          {
+            "name": "Email aprobador",
+            "type": "text",
+            "label": "Email aprobador"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "module": "google-email:sendAnEmail",
+      "version": 4,
+      "parameters": {
+        "__IMTCONN__": 14663976
+      },
+      "mapper": {
+        "to": [
+          "{{1.Email}}"
+        ],
+        "subject": "Respuesta a tu consulta {{1.`Lead ID`}}",
+        "bodyType": "collection",
+        "contents": [
+          {
+            "text": "{{1.`Borrador respuesta`}}",
+            "image": {}
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0
+        },
+        "setupValidation": {
+          "result": {
+            "valid": true,
+            "fields": []
+          },
+          "version": 1,
+          "configuration": "90cbe1261db29ca7"
+        },
+        "restore": {
+          "expect": {
+            "cc": {
+              "mode": "chose"
+            },
+            "to": {
+              "mode": "chose",
+              "items": [
+                null
+              ]
+            },
+            "bcc": {
+              "mode": "chose"
+            },
+            "from": {
+              "mode": "chose",
+              "label": "Empty"
+            },
+            "bodyType": {
+              "label": "Collection of contents (text, images, etc.)"
+            },
+            "contents": {
+              "mode": "chose",
+              "items": [
+                null
+              ]
+            },
+            "signature": {
+              "mode": "chose"
+            },
+            "attachments": {
+              "mode": "chose"
+            },
+            "emailHeaders": {
+              "mode": "chose"
+            }
+          },
+          "parameters": {
+            "__IMTCONN__": {
+              "data": {
+                "scoped": "true",
+                "connection": "google-email"
+              },
+              "label": "Leonardo's Gmail connection ([correo de conexión omitido])"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "__IMTCONN__",
+            "type": "account:google-email",
+            "label": "Connection",
+            "required": true
+          }
+        ],
+        "expect": [
+          {
+            "name": "to",
+            "spec": {
+              "name": "value",
+              "type": "email",
+              "label": "Recipient email address",
+              "required": true,
+              "validate": true
+            },
+            "type": "array",
+            "label": "To",
+            "required": true
+          },
+          {
+            "name": "subject",
+            "type": "text",
+            "label": "Subject"
+          },
+          {
+            "name": "bodyType",
+            "type": "select",
+            "label": "Body type",
+            "required": true,
+            "validate": {
+              "enum": [
+                "rawHtml",
+                "collection"
+              ]
+            }
+          },
+          {
+            "name": "attachments",
+            "spec": {
+              "name": "value",
+              "spec": [
+                {
+                  "name": "filename",
+                  "type": "filename",
+                  "label": "File name",
+                  "required": true,
+                  "semantic": "file:name"
+                },
+                {
+                  "name": "data",
+                  "type": "buffer",
+                  "label": "Data",
+                  "required": true,
+                  "semantic": "file:data"
+                }
+              ],
+              "type": "collection",
+              "label": "Attachment"
+            },
+            "type": "array",
+            "label": "Attachments"
+          },
+          {
+            "name": "from",
+            "type": "select",
+            "label": "From"
+          },
+          {
+            "name": "cc",
+            "spec": {
+              "name": "value",
+              "type": "email",
+              "label": "Recipient email address"
+            },
+            "type": "array",
+            "label": "CC recipients"
+          },
+          {
+            "name": "bcc",
+            "spec": {
+              "name": "value",
+              "type": "email",
+              "label": "Recipient email address"
+            },
+            "type": "array",
+            "label": "BCC recipients"
+          },
+          {
+            "name": "emailHeaders",
+            "spec": {
+              "name": "value",
+              "spec": [
+                {
+                  "name": "key",
+                  "type": "text",
+                  "label": "Key",
+                  "required": true
+                },
+                {
+                  "name": "value",
+                  "type": "text",
+                  "label": "Value"
+                }
+              ],
+              "type": "collection",
+              "label": "Email header"
+            },
+            "type": "array",
+            "label": "Additional email headers"
+          },
+          {
+            "name": "contents",
+            "spec": {
+              "name": "value",
+              "spec": [
+                {
+                  "name": "text",
+                  "type": "text",
+                  "label": "Text"
+                },
+                {
+                  "name": "image",
+                  "spec": [
+                    {
+                      "name": "filename",
+                      "type": "filename",
+                      "label": "File name",
+                      "semantic": "file:name"
+                    },
+                    {
+                      "name": "data",
+                      "type": "buffer",
+                      "label": "Data",
+                      "semantic": "file:data"
+                    },
+                    {
+                      "name": "width",
+                      "type": "uinteger",
+                      "label": "Width"
+                    },
+                    {
+                      "name": "height",
+                      "type": "uinteger",
+                      "label": "Height"
+                    }
+                  ],
+                  "type": "collection",
+                  "label": "Image"
+                }
+              ],
+              "type": "collection",
+              "label": "Content"
+            },
+            "type": "array",
+            "label": "Body contents"
+          },
+          {
+            "name": "signature",
+            "type": "select",
+            "label": "Signature content"
+          }
+        ]
+      },
+      "onerror": [
+        {
+          "id": 6,
+          "module": "airtable:ActionCreateRecord",
+          "version": 3,
+          "parameters": {
+            "__IMTCONN__": 14621498
+          },
+          "mapper": {
+            "base": "app44u2el71v1uwh6",
+            "table": "tblBnsAqsNoNKXqcx",
+            "record": {
+              "fld18njAK9JSSstPi": "{{2.error.message}}",
+              "fldTWD0GzE23eyvKD": "{{2.error.type}}",
+              "fldXwD2Eej3qbxo4M": "{{1.id}}-GMAIL-{{now}}",
+              "fldZXH3TP1naZU6JL": [
+                "{{1.id}}"
+              ],
+              "fldpXYGmOzFhS8WcM": "Gmail 2 - Send an email",
+              "fldqWd5550xwbYSSS": "Abierto"
+            },
+            "typecast": false,
+            "useColumnId": false
+          },
+          "metadata": {
+            "designer": {
+              "x": 600,
+              "y": 150
+            },
+            "setupValidation": {
+              "result": {
+                "valid": true,
+                "fields": []
+              },
+              "version": 1,
+              "configuration": "e13c0bbd6660e04"
+            },
+            "restore": {
+              "expect": {
+                "base": {
+                  "label": "Entrega Final IA - Leads Electro Alem (pruebas)"
+                },
+                "table": {
+                  "label": "Errores",
+                  "nested": [
+                    {
+                      "name": "record",
+                      "spec": [
+                        {
+                          "name": "fldXwD2Eej3qbxo4M",
+                          "type": "text",
+                          "label": "Error ID"
+                        },
+                        {
+                          "name": "fldpXYGmOzFhS8WcM",
+                          "type": "text",
+                          "label": "Módulo"
+                        },
+                        {
+                          "name": "fldTWD0GzE23eyvKD",
+                          "type": "text",
+                          "label": "Código"
+                        },
+                        {
+                          "name": "fld18njAK9JSSstPi",
+                          "type": "text",
+                          "label": "Mensaje resumido",
+                          "multiline": true
+                        },
+                        {
+                          "mode": "edit",
+                          "name": "fldqWd5550xwbYSSS",
+                          "type": "select",
+                          "label": "Estado",
+                          "dynamic": true,
+                          "options": [
+                            {
+                              "label": "Abierto",
+                              "value": "Abierto"
+                            },
+                            {
+                              "label": "Resuelto",
+                              "value": "Resuelto"
+                            }
+                          ],
+                          "validate": false
+                        },
+                        {
+                          "name": "fldZXH3TP1naZU6JL",
+                          "spec": {
+                            "type": "text",
+                            "label": "Record ID"
+                          },
+                          "type": "array",
+                          "label": "Leads"
+                        }
+                      ],
+                      "type": "collection",
+                      "label": "Record"
+                    }
+                  ]
+                },
+                "record": {
+                  "nested": {
+                    "fldZXH3TP1naZU6JL": {
+                      "mode": "chose",
+                      "items": [
+                        null
+                      ]
+                    },
+                    "fldqWd5550xwbYSSS": {
+                      "mode": "chose",
+                      "label": "Abierto"
+                    }
+                  }
+                },
+                "typecast": {
+                  "mode": "chose"
+                },
+                "useColumnId": {
+                  "mode": "chose"
+                }
+              },
+              "parameters": {
+                "__IMTCONN__": {
+                  "data": {
+                    "scoped": "true",
+                    "connection": "airtable3"
+                  },
+                  "label": "Leonardo's Airtable OAuth connection (User ID: usrWBdUBnpxSth4Mj)"
+                }
+              }
+            },
+            "parameters": [
+              {
+                "name": "__IMTCONN__",
+                "type": "account:airtable3,airtable2",
+                "label": "Connection",
+                "required": true
+              }
+            ],
+            "expect": [
+              {
+                "name": "base",
+                "type": "select",
+                "label": "Base",
+                "required": true
+              },
+              {
+                "name": "typecast",
+                "type": "boolean",
+                "label": "Smart links",
+                "required": true
+              },
+              {
+                "name": "useColumnId",
+                "type": "boolean",
+                "label": "Use column ID",
+                "required": true
+              },
+              {
+                "name": "table",
+                "type": "select",
+                "label": "Table",
+                "required": true
+              },
+              {
+                "name": "record",
+                "spec": [
+                  {
+                    "name": "fldXwD2Eej3qbxo4M",
+                    "type": "text",
+                    "label": "Error ID"
+                  },
+                  {
+                    "name": "fldpXYGmOzFhS8WcM",
+                    "type": "text",
+                    "label": "Módulo"
+                  },
+                  {
+                    "name": "fldTWD0GzE23eyvKD",
+                    "type": "text",
+                    "label": "Código"
+                  },
+                  {
+                    "name": "fld18njAK9JSSstPi",
+                    "type": "text",
+                    "label": "Mensaje resumido"
+                  },
+                  {
+                    "mode": "edit",
+                    "name": "fldqWd5550xwbYSSS",
+                    "type": "select",
+                    "label": "Estado"
+                  },
+                  {
+                    "name": "fldZXH3TP1naZU6JL",
+                    "spec": {
+                      "name": "value",
+                      "type": "text",
+                      "label": "Record ID"
+                    },
+                    "type": "array",
+                    "label": "Leads"
+                  }
+                ],
+                "type": "collection",
+                "label": "Record"
+              }
+            ],
+            "interface": [
+              {
+                "name": "id",
+                "type": "text",
+                "label": "ID"
+              },
+              {
+                "name": "createdTime",
+                "type": "date",
+                "label": "Created time"
+              },
+              {
+                "name": "Error ID",
+                "type": "text",
+                "label": "Error ID"
+              },
+              {
+                "name": "Módulo",
+                "type": "text",
+                "label": "Módulo"
+              },
+              {
+                "name": "Código",
+                "type": "text",
+                "label": "Código"
+              },
+              {
+                "name": "Mensaje resumido",
+                "type": "text",
+                "label": "Mensaje resumido",
+                "multiline": true
+              },
+              {
+                "name": "Estado",
+                "type": "text",
+                "label": "Estado"
+              },
+              {
+                "name": "Leads",
+                "spec": {
+                  "type": "text",
+                  "label": "Record ID"
+                },
+                "type": "array",
+                "label": "Leads"
+              }
+            ]
+          }
+        },
+        {
+          "id": 7,
+          "module": "airtable:ActionUpdateRecords",
+          "version": 3,
+          "parameters": {
+            "__IMTCONN__": 14621498
+          },
+          "mapper": {
+            "id": "{{1.id}}",
+            "base": "app44u2el71v1uwh6",
+            "table": "tblmDmD1LmYRGUGt2",
+            "record": {
+              "fldHQewaZqYXFkQkZ": "Error",
+              "fldkuc0BzYktp8lTA": true
+            },
+            "typecast": false,
+            "useColumnId": false
+          },
+          "metadata": {
+            "designer": {
+              "x": 900,
+              "y": 150
+            },
+            "setupValidation": {
+              "result": {
+                "valid": true,
+                "fields": []
+              },
+              "version": 1,
+              "configuration": "e791e3ed078bd64c"
+            },
+            "restore": {
+              "expect": {
+                "base": {
+                  "label": "Entrega Final IA - Leads Electro Alem (pruebas)"
+                },
+                "table": {
+                  "label": "Leads"
+                },
+                "record": {
+                  "nested": {
+                    "fld10kPXthmYz5ZO4": {
+                      "mode": "chose"
+                    },
+                    "fld4mxe31wMFvBRLK": {
+                      "mode": "edit"
+                    },
+                    "fldHQewaZqYXFkQkZ": {
+                      "mode": "chose",
+                      "label": "Error"
+                    },
+                    "fldWwykvx1O2qatTM": {
+                      "mode": "chose"
+                    },
+                    "fldk6Lj2KwzSZGnT0": {
+                      "mode": "chose"
+                    },
+                    "fldkuc0BzYktp8lTA": {
+                      "mode": "chose"
+                    }
+                  }
+                },
+                "typecast": {
+                  "mode": "chose"
+                },
+                "useColumnId": {
+                  "mode": "chose"
+                }
+              },
+              "parameters": {
+                "__IMTCONN__": {
+                  "data": {
+                    "scoped": "true",
+                    "connection": "airtable3"
+                  },
+                  "label": "Leonardo's Airtable OAuth connection (User ID: usrWBdUBnpxSth4Mj)"
+                }
+              }
+            },
+            "parameters": [
+              {
+                "name": "__IMTCONN__",
+                "type": "account:airtable3,airtable2",
+                "label": "Connection",
+                "required": true
+              }
+            ],
+            "expect": [
+              {
+                "name": "base",
+                "type": "select",
+                "label": "Base",
+                "required": true
+              },
+              {
+                "name": "typecast",
+                "type": "boolean",
+                "label": "Smart links",
+                "required": true
+              },
+              {
+                "name": "useColumnId",
+                "type": "boolean",
+                "label": "Use column ID",
+                "required": true
+              },
+              {
+                "name": "table",
+                "type": "select",
+                "label": "Table",
+                "required": true
+              },
+              {
+                "name": "id",
+                "type": "text",
+                "label": "Record ID",
+                "required": true
+              },
+              {
+                "name": "record",
+                "spec": [
+                  {
+                    "name": "fldLHW3ZB6qTpGGgJ",
+                    "type": "text",
+                    "label": "Lead ID"
+                  },
+                  {
+                    "name": "fld8BvBekY4Jx9Irb",
+                    "type": "text",
+                    "label": "Consulta"
+                  },
+                  {
+                    "name": "fldF9hG2rhH76O7Cm",
+                    "type": "text",
+                    "label": "Nombre"
+                  },
+                  {
+                    "name": "fldloCez9PtsP8EW0",
+                    "type": "text",
+                    "label": "Email"
+                  },
+                  {
+                    "mode": "edit",
+                    "name": "fldHQewaZqYXFkQkZ",
+                    "type": "select",
+                    "label": "Estado"
+                  },
+                  {
+                    "mode": "edit",
+                    "name": "fld4mxe31wMFvBRLK",
+                    "type": "select",
+                    "label": "Prioridad"
+                  },
+                  {
+                    "name": "fld9kSLoZlLKKAuss",
+                    "type": "text",
+                    "label": "Resumen IA"
+                  },
+                  {
+                    "name": "fldX4tJKEO6Rvnkcp",
+                    "type": "text",
+                    "label": "Borrador respuesta"
+                  },
+                  {
+                    "name": "fldkuc0BzYktp8lTA",
+                    "type": "boolean",
+                    "label": "Aprobado"
+                  },
+                  {
+                    "name": "fldHiIFFOMyGQ9Igh",
+                    "type": "text",
+                    "label": "Thread ID"
+                  },
+                  {
+                    "name": "fldkl64ZMMHUMjPyL",
+                    "type": "text",
+                    "label": "Mensaje ID"
+                  },
+                  {
+                    "name": "fldnrtmMEcuktZxwM",
+                    "type": "text",
+                    "label": "Origen"
+                  },
+                  {
+                    "name": "fldWwykvx1O2qatTM",
+                    "spec": {
+                      "name": "value",
+                      "type": "text",
+                      "label": "Record ID"
+                    },
+                    "type": "array",
+                    "label": "Conocimientos utilizados"
+                  },
+                  {
+                    "name": "fldk6Lj2KwzSZGnT0",
+                    "spec": {
+                      "name": "value",
+                      "type": "text",
+                      "label": "Record ID"
+                    },
+                    "type": "array",
+                    "label": "Ejecuciones registradas"
+                  },
+                  {
+                    "name": "fld10kPXthmYz5ZO4",
+                    "spec": {
+                      "name": "value",
+                      "type": "text",
+                      "label": "Record ID"
+                    },
+                    "type": "array",
+                    "label": "Errores registrados"
+                  },
+                  {
+                    "name": "fld44ebVv973W1KJR",
+                    "type": "text",
+                    "label": "Email aprobador"
+                  }
+                ],
+                "type": "collection",
+                "label": "Record"
+              }
+            ],
+            "interface": [
+              {
+                "name": "id",
+                "type": "text",
+                "label": "ID"
+              },
+              {
+                "name": "createdTime",
+                "type": "date",
+                "label": "Created time"
+              },
+              {
+                "name": "Lead ID",
+                "type": "text",
+                "label": "Lead ID"
+              },
+              {
+                "name": "Consulta",
+                "type": "text",
+                "label": "Consulta",
+                "multiline": true
+              },
+              {
+                "name": "Nombre",
+                "type": "text",
+                "label": "Nombre"
+              },
+              {
+                "name": "Email",
+                "type": "text",
+                "label": "Email"
+              },
+              {
+                "name": "Estado",
+                "type": "text",
+                "label": "Estado"
+              },
+              {
+                "name": "Prioridad",
+                "type": "text",
+                "label": "Prioridad"
+              },
+              {
+                "name": "Resumen IA",
+                "type": "text",
+                "label": "Resumen IA",
+                "multiline": true
+              },
+              {
+                "name": "Borrador respuesta",
+                "type": "text",
+                "label": "Borrador respuesta",
+                "multiline": true
+              },
+              {
+                "name": "Aprobado",
+                "type": "boolean",
+                "label": "Aprobado"
+              },
+              {
+                "name": "Thread ID",
+                "type": "text",
+                "label": "Thread ID"
+              },
+              {
+                "name": "Mensaje ID",
+                "type": "text",
+                "label": "Mensaje ID"
+              },
+              {
+                "name": "Origen",
+                "type": "text",
+                "label": "Origen"
+              },
+              {
+                "name": "Conocimientos utilizados",
+                "spec": {
+                  "type": "text",
+                  "label": "Record ID"
+                },
+                "type": "array",
+                "label": "Conocimientos utilizados"
+              },
+              {
+                "name": "Ejecuciones registradas",
+                "spec": {
+                  "type": "text",
+                  "label": "Record ID"
+                },
+                "type": "array",
+                "label": "Ejecuciones registradas"
+              },
+              {
+                "name": "Errores registrados",
+                "spec": {
+                  "type": "text",
+                  "label": "Record ID"
+                },
+                "type": "array",
+                "label": "Errores registrados"
+              },
+              {
+                "name": "Creado el",
+                "type": "date",
+                "label": "Creado el"
+              },
+              {
+                "name": "Email aprobador",
+                "type": "text",
+                "label": "Email aprobador"
+              }
+            ]
+          }
+        },
+        {
+          "id": 8,
+          "module": "airtable:ActionCreateRecord",
+          "version": 3,
+          "parameters": {
+            "__IMTCONN__": 14621498
+          },
+          "mapper": {
+            "base": "app44u2el71v1uwh6",
+            "table": "tblJnrI4NKoS8FE5x",
+            "record": {
+              "fldGUFIScQKj1r2Dx": "{{now}}",
+              "fldJoEId9ecWUDcXP": [
+                "{{1.id}}"
+              ],
+              "fldS0LN4yEHXnxFrT": "{{1.id}}-ENVIO-FALLIDO-{{now}}",
+              "fldstWFu4lte0Pfir": "Fallo en Gmail 2 al enviar respuesta",
+              "fldxeqI549YcRjnv2": "Envío fallido"
+            },
+            "typecast": false,
+            "useColumnId": false
+          },
+          "metadata": {
+            "designer": {
+              "x": 1200,
+              "y": 150
+            },
+            "setupValidation": {
+              "result": {
+                "valid": true,
+                "fields": []
+              },
+              "version": 1,
+              "configuration": "aec0b9247f4c5872"
+            },
+            "restore": {
+              "expect": {
+                "base": {
+                  "label": "Entrega Final IA - Leads Electro Alem (pruebas)"
+                },
+                "table": {
+                  "label": "Ejecuciones",
+                  "nested": [
+                    {
+                      "name": "record",
+                      "spec": [
+                        {
+                          "name": "fldS0LN4yEHXnxFrT",
+                          "type": "text",
+                          "label": "Ejecución ID"
+                        },
+                        {
+                          "name": "fldGUFIScQKj1r2Dx",
+                          "time": true,
+                          "type": "date",
+                          "label": "Fecha"
+                        },
+                        {
+                          "mode": "edit",
+                          "name": "fldxeqI549YcRjnv2",
+                          "type": "select",
+                          "label": "Resultado",
+                          "dynamic": true,
+                          "options": [
+                            {
+                              "label": "Éxito",
+                              "value": "Éxito"
+                            },
+                            {
+                              "label": "Pendiente HITL",
+                              "value": "Pendiente HITL"
+                            },
+                            {
+                              "label": "Dato inválido",
+                              "value": "Dato inválido"
+                            },
+                            {
+                              "label": "Error API",
+                              "value": "Error API"
+                            },
+                            {
+                              "label": "Envío fallido",
+                              "value": "Envío fallido"
+                            }
+                          ],
+                          "validate": false
+                        },
+                        {
+                          "name": "fldstWFu4lte0Pfir",
+                          "type": "text",
+                          "label": "Etapa"
+                        },
+                        {
+                          "name": "fldCsZB68WWsV7QpB",
+                          "type": "number",
+                          "label": "Tokens"
+                        },
+                        {
+                          "name": "fldJoEId9ecWUDcXP",
+                          "spec": {
+                            "type": "text",
+                            "label": "Record ID"
+                          },
+                          "type": "array",
+                          "label": "Leads"
+                        }
+                      ],
+                      "type": "collection",
+                      "label": "Record"
+                    }
+                  ]
+                },
+                "record": {
+                  "nested": {
+                    "fldJoEId9ecWUDcXP": {
+                      "mode": "chose",
+                      "items": [
+                        null
+                      ]
+                    },
+                    "fldxeqI549YcRjnv2": {
+                      "mode": "chose",
+                      "label": "Envío fallido"
+                    }
+                  }
+                },
+                "typecast": {
+                  "mode": "chose"
+                },
+                "useColumnId": {
+                  "mode": "chose"
+                }
+              },
+              "parameters": {
+                "__IMTCONN__": {
+                  "data": {
+                    "scoped": "true",
+                    "connection": "airtable3"
+                  },
+                  "label": "Leonardo's Airtable OAuth connection (User ID: usrWBdUBnpxSth4Mj)"
+                }
+              }
+            },
+            "parameters": [
+              {
+                "name": "__IMTCONN__",
+                "type": "account:airtable3,airtable2",
+                "label": "Connection",
+                "required": true
+              }
+            ],
+            "expect": [
+              {
+                "name": "base",
+                "type": "select",
+                "label": "Base",
+                "required": true
+              },
+              {
+                "name": "typecast",
+                "type": "boolean",
+                "label": "Smart links",
+                "required": true
+              },
+              {
+                "name": "useColumnId",
+                "type": "boolean",
+                "label": "Use column ID",
+                "required": true
+              },
+              {
+                "name": "table",
+                "type": "select",
+                "label": "Table",
+                "required": true
+              },
+              {
+                "name": "record",
+                "spec": [
+                  {
+                    "name": "fldS0LN4yEHXnxFrT",
+                    "type": "text",
+                    "label": "Ejecución ID"
+                  },
+                  {
+                    "name": "fldGUFIScQKj1r2Dx",
+                    "time": true,
+                    "type": "date",
+                    "label": "Fecha"
+                  },
+                  {
+                    "mode": "edit",
+                    "name": "fldxeqI549YcRjnv2",
+                    "type": "select",
+                    "label": "Resultado"
+                  },
+                  {
+                    "name": "fldstWFu4lte0Pfir",
+                    "type": "text",
+                    "label": "Etapa"
+                  },
+                  {
+                    "name": "fldCsZB68WWsV7QpB",
+                    "type": "number",
+                    "label": "Tokens"
+                  },
+                  {
+                    "name": "fldJoEId9ecWUDcXP",
+                    "spec": {
+                      "name": "value",
+                      "type": "text",
+                      "label": "Record ID"
+                    },
+                    "type": "array",
+                    "label": "Leads"
+                  }
+                ],
+                "type": "collection",
+                "label": "Record"
+              }
+            ],
+            "interface": [
+              {
+                "name": "id",
+                "type": "text",
+                "label": "ID"
+              },
+              {
+                "name": "createdTime",
+                "type": "date",
+                "label": "Created time"
+              },
+              {
+                "name": "Ejecución ID",
+                "type": "text",
+                "label": "Ejecución ID"
+              },
+              {
+                "name": "Fecha",
+                "time": true,
+                "type": "date",
+                "label": "Fecha"
+              },
+              {
+                "name": "Resultado",
+                "type": "text",
+                "label": "Resultado"
+              },
+              {
+                "name": "Etapa",
+                "type": "text",
+                "label": "Etapa"
+              },
+              {
+                "name": "Tokens",
+                "type": "number",
+                "label": "Tokens"
+              },
+              {
+                "name": "Leads",
+                "spec": {
+                  "type": "text",
+                  "label": "Record ID"
+                },
+                "type": "array",
+                "label": "Leads"
+              },
+              {
+                "name": "Error porcentual",
+                "type": "text",
+                "label": "Error porcentual"
+              }
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "module": "builtin:Break",
+          "version": 1,
+          "parameters": {},
+          "mapper": {
+            "retry": false
+          },
+          "metadata": {
+            "designer": {
+              "x": 1500,
+              "y": 150
+            },
+            "setupValidation": {
+              "result": {
+                "valid": true,
+                "fields": []
+              },
+              "version": 1,
+              "configuration": "5abecd043d0f00a6"
+            },
+            "restore": {
+              "expect": {
+                "retry": {
+                  "mode": "chose"
+                }
+              }
+            },
+            "expect": [
+              {
+                "name": "retry",
+                "type": "boolean",
+                "label": "Retry automatically",
+                "required": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "module": "airtable:ActionUpdateRecords",
+      "version": 3,
+      "parameters": {
+        "__IMTCONN__": 14621498
+      },
+      "mapper": {
+        "id": "{{1.id}}",
+        "base": "app44u2el71v1uwh6",
+        "table": "tblmDmD1LmYRGUGt2",
+        "record": {
+          "fldHQewaZqYXFkQkZ": "Enviado",
+          "fldHiIFFOMyGQ9Igh": "{{2.threadId}}",
+          "fldkl64ZMMHUMjPyL": "{{2.id}}",
+          "fldkuc0BzYktp8lTA": true
+        },
+        "typecast": false,
+        "useColumnId": false
+      },
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": -150
+        },
+        "setupValidation": {
+          "result": {
+            "valid": true,
+            "fields": []
+          },
+          "version": 1,
+          "configuration": "e12eae6149799236"
+        },
+        "restore": {
+          "expect": {
+            "base": {
+              "label": "Entrega Final IA - Leads Electro Alem (pruebas)"
+            },
+            "table": {
+              "label": "Leads"
+            },
+            "record": {
+              "nested": {
+                "fld10kPXthmYz5ZO4": {
+                  "mode": "chose"
+                },
+                "fld4mxe31wMFvBRLK": {
+                  "mode": "edit"
+                },
+                "fldHQewaZqYXFkQkZ": {
+                  "mode": "chose",
+                  "label": "Enviado"
+                },
+                "fldWwykvx1O2qatTM": {
+                  "mode": "chose"
+                },
+                "fldk6Lj2KwzSZGnT0": {
+                  "mode": "chose"
+                },
+                "fldkuc0BzYktp8lTA": {
+                  "mode": "chose"
+                }
+              }
+            },
+            "typecast": {
+              "mode": "chose"
+            },
+            "useColumnId": {
+              "mode": "chose"
+            }
+          },
+          "parameters": {
+            "__IMTCONN__": {
+              "data": {
+                "scoped": "true",
+                "connection": "airtable3"
+              },
+              "label": "Leonardo's Airtable OAuth connection (User ID: usrWBdUBnpxSth4Mj)"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "__IMTCONN__",
+            "type": "account:airtable3,airtable2",
+            "label": "Connection",
+            "required": true
+          }
+        ],
+        "expect": [
+          {
+            "name": "base",
+            "type": "select",
+            "label": "Base",
+            "required": true
+          },
+          {
+            "name": "typecast",
+            "type": "boolean",
+            "label": "Smart links",
+            "required": true
+          },
+          {
+            "name": "useColumnId",
+            "type": "boolean",
+            "label": "Use column ID",
+            "required": true
+          },
+          {
+            "name": "table",
+            "type": "select",
+            "label": "Table",
+            "required": true
+          },
+          {
+            "name": "id",
+            "type": "text",
+            "label": "Record ID",
+            "required": true
+          },
+          {
+            "name": "record",
+            "spec": [
+              {
+                "name": "fldLHW3ZB6qTpGGgJ",
+                "type": "text",
+                "label": "Lead ID"
+              },
+              {
+                "name": "fld8BvBekY4Jx9Irb",
+                "type": "text",
+                "label": "Consulta"
+              },
+              {
+                "name": "fldF9hG2rhH76O7Cm",
+                "type": "text",
+                "label": "Nombre"
+              },
+              {
+                "name": "fldloCez9PtsP8EW0",
+                "type": "text",
+                "label": "Email"
+              },
+              {
+                "mode": "edit",
+                "name": "fldHQewaZqYXFkQkZ",
+                "type": "select",
+                "label": "Estado"
+              },
+              {
+                "mode": "edit",
+                "name": "fld4mxe31wMFvBRLK",
+                "type": "select",
+                "label": "Prioridad"
+              },
+              {
+                "name": "fld9kSLoZlLKKAuss",
+                "type": "text",
+                "label": "Resumen IA"
+              },
+              {
+                "name": "fldX4tJKEO6Rvnkcp",
+                "type": "text",
+                "label": "Borrador respuesta"
+              },
+              {
+                "name": "fldkuc0BzYktp8lTA",
+                "type": "boolean",
+                "label": "Aprobado"
+              },
+              {
+                "name": "fldHiIFFOMyGQ9Igh",
+                "type": "text",
+                "label": "Thread ID"
+              },
+              {
+                "name": "fldkl64ZMMHUMjPyL",
+                "type": "text",
+                "label": "Mensaje ID"
+              },
+              {
+                "name": "fldnrtmMEcuktZxwM",
+                "type": "text",
+                "label": "Origen"
+              },
+              {
+                "name": "fldWwykvx1O2qatTM",
+                "spec": {
+                  "name": "value",
+                  "type": "text",
+                  "label": "Record ID"
+                },
+                "type": "array",
+                "label": "Conocimientos utilizados"
+              },
+              {
+                "name": "fldk6Lj2KwzSZGnT0",
+                "spec": {
+                  "name": "value",
+                  "type": "text",
+                  "label": "Record ID"
+                },
+                "type": "array",
+                "label": "Ejecuciones registradas"
+              },
+              {
+                "name": "fld10kPXthmYz5ZO4",
+                "spec": {
+                  "name": "value",
+                  "type": "text",
+                  "label": "Record ID"
+                },
+                "type": "array",
+                "label": "Errores registrados"
+              },
+              {
+                "name": "fld44ebVv973W1KJR",
+                "type": "text",
+                "label": "Email aprobador"
+              }
+            ],
+            "type": "collection",
+            "label": "Record"
+          }
+        ],
+        "interface": [
+          {
+            "name": "id",
+            "type": "text",
+            "label": "ID"
+          },
+          {
+            "name": "createdTime",
+            "type": "date",
+            "label": "Created time"
+          },
+          {
+            "name": "Lead ID",
+            "type": "text",
+            "label": "Lead ID"
+          },
+          {
+            "name": "Consulta",
+            "type": "text",
+            "label": "Consulta",
+            "multiline": true
+          },
+          {
+            "name": "Nombre",
+            "type": "text",
+            "label": "Nombre"
+          },
+          {
+            "name": "Email",
+            "type": "text",
+            "label": "Email"
+          },
+          {
+            "name": "Estado",
+            "type": "text",
+            "label": "Estado"
+          },
+          {
+            "name": "Prioridad",
+            "type": "text",
+            "label": "Prioridad"
+          },
+          {
+            "name": "Resumen IA",
+            "type": "text",
+            "label": "Resumen IA",
+            "multiline": true
+          },
+          {
+            "name": "Borrador respuesta",
+            "type": "text",
+            "label": "Borrador respuesta",
+            "multiline": true
+          },
+          {
+            "name": "Aprobado",
+            "type": "boolean",
+            "label": "Aprobado"
+          },
+          {
+            "name": "Thread ID",
+            "type": "text",
+            "label": "Thread ID"
+          },
+          {
+            "name": "Mensaje ID",
+            "type": "text",
+            "label": "Mensaje ID"
+          },
+          {
+            "name": "Origen",
+            "type": "text",
+            "label": "Origen"
+          },
+          {
+            "name": "Conocimientos utilizados",
+            "spec": {
+              "type": "text",
+              "label": "Record ID"
+            },
+            "type": "array",
+            "label": "Conocimientos utilizados"
+          },
+          {
+            "name": "Ejecuciones registradas",
+            "spec": {
+              "type": "text",
+              "label": "Record ID"
+            },
+            "type": "array",
+            "label": "Ejecuciones registradas"
+          },
+          {
+            "name": "Errores registrados",
+            "spec": {
+              "type": "text",
+              "label": "Record ID"
+            },
+            "type": "array",
+            "label": "Errores registrados"
+          },
+          {
+            "name": "Creado el",
+            "type": "date",
+            "label": "Creado el"
+          },
+          {
+            "name": "Email aprobador",
+            "type": "text",
+            "label": "Email aprobador"
+          }
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "module": "airtable:ActionCreateRecord",
+      "version": 3,
+      "parameters": {
+        "__IMTCONN__": 14621498
+      },
+      "mapper": {
+        "base": "app44u2el71v1uwh6",
+        "table": "tblJnrI4NKoS8FE5x",
+        "record": {
+          "fldGUFIScQKj1r2Dx": "{{now}}",
+          "fldJoEId9ecWUDcXP": [
+            "{{1.id}}"
+          ],
+          "fldS0LN4yEHXnxFrT": "{{2.id}}",
+          "fldstWFu4lte0Pfir": "Respuesta enviada al cliente",
+          "fldxeqI549YcRjnv2": "Éxito"
+        },
+        "typecast": false,
+        "useColumnId": false
+      },
+      "metadata": {
+        "designer": {
+          "x": 904,
+          "y": -132
+        },
+        "setupValidation": {
+          "result": {
+            "valid": true,
+            "fields": []
+          },
+          "version": 1,
+          "configuration": "3ecdf2b0de75057a"
+        },
+        "restore": {
+          "expect": {
+            "base": {
+              "label": "Entrega Final IA - Leads Electro Alem (pruebas)"
+            },
+            "table": {
+              "label": "Ejecuciones",
+              "nested": [
+                {
+                  "name": "record",
+                  "spec": [
+                    {
+                      "name": "fldS0LN4yEHXnxFrT",
+                      "type": "text",
+                      "label": "Ejecución ID"
+                    },
+                    {
+                      "name": "fldGUFIScQKj1r2Dx",
+                      "time": true,
+                      "type": "date",
+                      "label": "Fecha"
+                    },
+                    {
+                      "mode": "edit",
+                      "name": "fldxeqI549YcRjnv2",
+                      "type": "select",
+                      "label": "Resultado",
+                      "dynamic": true,
+                      "options": [
+                        {
+                          "label": "Éxito",
+                          "value": "Éxito"
+                        },
+                        {
+                          "label": "Pendiente HITL",
+                          "value": "Pendiente HITL"
+                        },
+                        {
+                          "label": "Dato inválido",
+                          "value": "Dato inválido"
+                        },
+                        {
+                          "label": "Error API",
+                          "value": "Error API"
+                        },
+                        {
+                          "label": "Envío fallido",
+                          "value": "Envío fallido"
+                        }
+                      ],
+                      "validate": false
+                    },
+                    {
+                      "name": "fldstWFu4lte0Pfir",
+                      "type": "text",
+                      "label": "Etapa"
+                    },
+                    {
+                      "name": "fldCsZB68WWsV7QpB",
+                      "type": "number",
+                      "label": "Tokens"
+                    },
+                    {
+                      "name": "fldJoEId9ecWUDcXP",
+                      "spec": {
+                        "type": "text",
+                        "label": "Record ID"
+                      },
+                      "type": "array",
+                      "label": "Leads"
+                    }
+                  ],
+                  "type": "collection",
+                  "label": "Record"
+                }
+              ]
+            },
+            "record": {
+              "nested": {
+                "fldJoEId9ecWUDcXP": {
+                  "mode": "chose",
+                  "items": [
+                    null
+                  ]
+                },
+                "fldxeqI549YcRjnv2": {
+                  "mode": "chose",
+                  "label": "Éxito"
+                }
+              }
+            },
+            "typecast": {
+              "mode": "chose"
+            },
+            "useColumnId": {
+              "mode": "chose"
+            }
+          },
+          "parameters": {
+            "__IMTCONN__": {
+              "data": {
+                "scoped": "true",
+                "connection": "airtable3"
+              },
+              "label": "Leonardo's Airtable OAuth connection (User ID: usrWBdUBnpxSth4Mj)"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "__IMTCONN__",
+            "type": "account:airtable3,airtable2",
+            "label": "Connection",
+            "required": true
+          }
+        ],
+        "expect": [
+          {
+            "name": "base",
+            "type": "select",
+            "label": "Base",
+            "required": true
+          },
+          {
+            "name": "typecast",
+            "type": "boolean",
+            "label": "Smart links",
+            "required": true
+          },
+          {
+            "name": "useColumnId",
+            "type": "boolean",
+            "label": "Use column ID",
+            "required": true
+          },
+          {
+            "name": "table",
+            "type": "select",
+            "label": "Table",
+            "required": true
+          },
+          {
+            "name": "record",
+            "spec": [
+              {
+                "name": "fldS0LN4yEHXnxFrT",
+                "type": "text",
+                "label": "Ejecución ID"
+              },
+              {
+                "name": "fldGUFIScQKj1r2Dx",
+                "time": true,
+                "type": "date",
+                "label": "Fecha"
+              },
+              {
+                "mode": "edit",
+                "name": "fldxeqI549YcRjnv2",
+                "type": "select",
+                "label": "Resultado"
+              },
+              {
+                "name": "fldstWFu4lte0Pfir",
+                "type": "text",
+                "label": "Etapa"
+              },
+              {
+                "name": "fldCsZB68WWsV7QpB",
+                "type": "number",
+                "label": "Tokens"
+              },
+              {
+                "name": "fldJoEId9ecWUDcXP",
+                "spec": {
+                  "name": "value",
+                  "type": "text",
+                  "label": "Record ID"
+                },
+                "type": "array",
+                "label": "Leads"
+              }
+            ],
+            "type": "collection",
+            "label": "Record"
+          }
+        ],
+        "interface": [
+          {
+            "name": "id",
+            "type": "text",
+            "label": "ID"
+          },
+          {
+            "name": "createdTime",
+            "type": "date",
+            "label": "Created time"
+          },
+          {
+            "name": "Ejecución ID",
+            "type": "text",
+            "label": "Ejecución ID"
+          },
+          {
+            "name": "Fecha",
+            "time": true,
+            "type": "date",
+            "label": "Fecha"
+          },
+          {
+            "name": "Resultado",
+            "type": "text",
+            "label": "Resultado"
+          },
+          {
+            "name": "Etapa",
+            "type": "text",
+            "label": "Etapa"
+          },
+          {
+            "name": "Tokens",
+            "type": "number",
+            "label": "Tokens"
+          },
+          {
+            "name": "Leads",
+            "spec": {
+              "type": "text",
+              "label": "Record ID"
+            },
+            "type": "array",
+            "label": "Leads"
+          },
+          {
+            "name": "Error porcentual",
+            "type": "text",
+            "label": "Error porcentual"
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "slots": null,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": true,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    },
+    "zone": "eu2.make.com",
+    "notes": []
+  }
+}
